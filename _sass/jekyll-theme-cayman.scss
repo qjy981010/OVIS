@@ -111,7 +111,8 @@ a {
   background-color: $header-bg-color;
   background-image: url("banner_new.jpg");
   // height: 270px;
-  background-size: 960px 270px;
+  // background-size: 960px 270px;
+  background-size: contain;
   // background-image: url("banner3.jpg");
   // linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
 
