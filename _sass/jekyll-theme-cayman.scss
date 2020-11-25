@@ -109,7 +109,8 @@ a {
   color: $header-heading-color;
   text-align: center;
   background-color: $header-bg-color;
-  background-image: url("banner3.jpg");
+  background-image: url("banner_new.jpg");
+  // background-image: url("banner3.jpg");
   // linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
 
   @include large {
