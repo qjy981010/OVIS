@@ -5,7 +5,7 @@ layout: default
 **OVIS** (short for **O**ccluded **V**ideo **I**nstance **S**egmentation) is a new large scale benchmark dataset for video instance segmentation task. It is designed with the philosophy of perceiving object occlusions in videos, which could reveal the complexity and the diversity of real-world scenes.
 
 [Occluded Video Instance Segmentation](coming-soon)<br>
-Jiyang Qi<sup>1,2</sup>, Yan Gao<sup>2</sup>, [Song Bai](http://songbai.site)<sup>2,3</sup>, Xiaoyu Liu<sup>2</sup>, [Yao Hu](https://scholar.google.com/citations?user=LIu7k7wAAAAJ)<sup>2</sup>, [Xinggang Wang](https://xinggangw.info/index_cn.htm)<sup>1</sup>, [Xiang Bai](http://122.205.5.5:8071/~xbai/)<sup>1</sup>, [Philip H.S. Torr](http://www.robots.ox.ac.uk/~phst/)<sup>3</sup><br>, [Serge Belongie](https://vision.cornell.edu/se3/people/serge-belongie/)<sup>4</sup>, [Alan Yuille](http://www.cs.jhu.edu/~ayuille/)<sup>5</sup>  
+Jiyang Qi<sup>1,2</sup>, Yan Gao<sup>2</sup>, [Song Bai](http://songbai.site)<sup>2,3</sup>, Xiaoyu Liu<sup>2</sup>, [Yao Hu](https://scholar.google.com/citations?user=LIu7k7wAAAAJ)<sup>2</sup>, [Xinggang Wang](https://xinggangw.info/index_cn.htm)<sup>1</sup>, [Xiang Bai](http://122.205.5.5:8071/~xbai/)<sup>1</sup>, [Philip H.S. Torr](http://www.robots.ox.ac.uk/~phst/)<sup>3</sup><br>, [Serge Belongie](https://vision.cornell.edu/se3/people/serge-belongie/)<sup>4</sup>, [Alan Yuille](http://www.cs.jhu.edu/~ayuille/)<sup>5</sup><br>
 <sup>1</sup>Huazhong University of Science and Technology
 <sup>2</sup>Alibaba Group
 <sup>3</sup>University of Oxford
@@ -48,7 +48,7 @@ Given a video, all the objects belonging to the pre-defined category set are exh
 
 ### Visualization
 
-![Various types of occlusions](data/occlusions_singlecol_crop_30.png)
+<!-- ![Various types of occlusions](data/occlusions_singlecol_crop_30.png) -->
 
 
 
@@ -58,15 +58,15 @@ Given a video, all the objects belonging to the pre-defined category set are exh
 <table style="display:flex;justify-content:center;border:0">
 <tr>
 <td><img src="./data/webp/2592056.webp" alt="2592056" width="320" height="180" />
-<figcaption style="text-align:center;">2592056</figcaption></td>
+</td>
 <td><img src="./data/webp/2930398.webp" alt="2930398" width="320" height="180">
-<figcaption style="text-align:center;">2930398</figcaption></td>
+</td>
 </tr>
 <tr>
 <td><img src="./data/webp/2932104.webp" alt="2932104" width="320" height="180">
-<figcaption style="text-align:center;">2932104</figcaption></td>
+</td>
 <td><img src="./data/webp/3021160.webp" alt="3021160" width="320" height="180">
-<figcaption style="text-align:center;">3021160</figcaption></td>
+</td>
 </tr>
 </table>
 <center><i>Visualization of the annotations.</i></center>
