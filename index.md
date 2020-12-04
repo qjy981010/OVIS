@@ -5,7 +5,8 @@ layout: default
 **OVIS** (short for **O**ccluded **V**ideo **I**nstance **S**egmentation) is a new large scale benchmark dataset for video instance segmentation task. It is designed with the philosophy of perceiving object occlusions in videos, which could reveal the complexity and the diversity of real-world scenes.
 
 [Occluded Video Instance Segmentation](coming-soon)<br>
-Jiyang Qi<sup>1,2</sup>, Yan Gao<sup>2</sup>, [Song Bai](http://songbai.site)<sup>2,3</sup>, Xiaoyu Liu<sup>2</sup>, [Yao Hu](https://scholar.google.com/citations?user=LIu7k7wAAAAJ)<sup>2</sup>, [Xinggang Wang](https://xinggangw.info/index_cn.htm)<sup>1</sup>, [Xiang Bai](http://122.205.5.5:8071/~xbai/)<sup>1</sup>, [Philip H.S. Torr](http://www.robots.ox.ac.uk/~phst/)<sup>3</sup><br>, [Serge Belongie](https://vision.cornell.edu/se3/people/serge-belongie/)<sup>4</sup>, [Alan Yuille](http://www.cs.jhu.edu/~ayuille/)<sup>5</sup><br>
+Jiyang Qi<sup>1,2</sup>, Yan Gao<sup>2</sup>, [Song Bai](http://songbai.site)<sup>2,3</sup>, Xiaoyu Liu<sup>2</sup>, [Yao Hu](https://scholar.google.com/citations?user=LIu7k7wAAAAJ)<sup>2</sup>, [Xinggang Wang](https://xinggangw.info/index_cn.htm)<sup>1</sup>, [Xiang Bai](http://122.205.5.5:8071/~xbai/)<sup>1</sup>, [Philip H.S. Torr](http://www.robots.ox.ac.uk/~phst/)<sup>3</sup><br>,<br>
+[Serge Belongie](https://vision.cornell.edu/se3/people/serge-belongie/)<sup>4</sup>, [Alan Yuille](http://www.cs.jhu.edu/~ayuille/)<sup>5</sup><br>
 <sup>1</sup>Huazhong University of Science and Technology
 <sup>2</sup>Alibaba Group
 <sup>3</sup>University of Oxford
