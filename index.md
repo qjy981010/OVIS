@@ -30,7 +30,7 @@ To answer this question, we collect a large scale dataset called **OVIS** for oc
 
 
 
-# Explore MUSES
+# Explore OVIS
 
 ### OVIS Consists of:
 - 151k high-quality instance masks
