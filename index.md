@@ -2,6 +2,18 @@
 layout: default
 ---
 
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
 本文介绍一下我们最新提出的视频实例分割数据集OVIS，以及用于融合前后帧信息的TFC模块
 
 **Occluded Video Instance Segmentation**
@@ -20,7 +32,7 @@ layout: default
 ## 2. Dataset Statistics 
 
 ![](data/table1.jpg)
-<img src="./data/webp/3021160.webp" alt="3021160" width="400" height="215">
+<img src="data/table1.jpg" alt="3021160" width="400" height="215">
 
 OVIS包含296k个高质量mask标注，25个常见类别，5,223个不同的物体，以及多种多样的遮挡场景。相比之前的Youtube-VIS数据集，OVIS拥有更多的mask，更多的物体。我们牺牲了一定的视频段数来标注更长更复杂的视频，以让它更具挑战性。
 
