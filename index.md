@@ -2,67 +2,39 @@
 layout: default
 ---
 
-**OVIS** (short for **O**ccluded **V**ideo **I**nstance **S**egmentation) is a new large scale benchmark dataset for video instance segmentation task. It is designed with the philosophy of perceiving object occlusions in videos, which could reveal the complexity and the diversity of real-world scenes.
+本文介绍一下我们最新提出的视频实例分割数据集OVIS，以及用于融合前后帧信息的TFC模块
 
-[**Occluded Video Instance Segmentation**](coming-soon)<br>
-Jiyang Qi<sup>1,2</sup>, Yan Gao<sup>2</sup>, [Song Bai](http://songbai.site)<sup>2,3</sup>, Xiaoyu Liu<sup>2</sup>, [Yao Hu](https://scholar.google.com/citations?user=LIu7k7wAAAAJ)<sup>2</sup>, [Xinggang Wang](https://xinggangw.info/index_cn.htm)<sup>1</sup>, [Xiang Bai](http://122.205.5.5:8071/~xbai/)<sup>1</sup>, [Philip H.S. Torr](http://www.robots.ox.ac.uk/~phst/)<sup>3</sup>, [Serge Belongie](https://vision.cornell.edu/se3/people/serge-belongie/)<sup>4</sup>, [Alan Yuille](http://www.cs.jhu.edu/~ayuille/)<sup>5</sup><br>
-<sup>1</sup>Huazhong University of Science and Technology
-<sup>2</sup>Alibaba Group
-<sup>3</sup>University of Oxford
-<sup>4</sup>Cornell University
-<sup>5</sup>Johns Hopkins University
+**Occluded Video Instance Segmentation**
 
+[[Paper]](https://arxiv.org/abs/2102.01558) &emsp; [[Project Page]](http://songbai.site/ovis/)
 
-<!-- [[Paper]](coming_soon)        [[Code]](coming_soon)         [[Download]](coming_soon) -->
+## 1. Motivation
 
----
+对于被遮挡的物体，人类能够根据场景的前后变化来定位和追踪被遮挡的物体，并且能脑补出物体被遮住的部分，那么现有的深度学习方法对遮挡场景的处理能力如何呢？
 
-# Abstract
-Can our video understanding systems perceive objects when a heavy occlusion exists in a scene?  
+为此，我们构建了一个针对强遮挡场景的大型视频实例分割数据集**O**ccluded **V**ideo **I**nstance **S**egmentation (**OVIS**)，它要求算法能检测、分割、跟踪视频里的所有物体。与其他数据集相比，OVIS最主要的特点就是视频里存在大量多种多样的遮挡。因此，OVIS很适合用来衡量算法对于遮挡场景的处理能力。
 
-To answer this question, we collect a large scale dataset called **OVIS** for occluded video instance segmentation, that is, to simultaneously detect, segment, and track instances in occluded scenes. OVIS consists of **151k high-quality instance masks** from 25 semantic categories, where **object occlusions** usually occur. While our human vision systems can understand those occluded instances by contextual reasoning and association, our experiments suggest that current video understanding systems cannot. On the OVIS dataset, the highest AP achieved by state-of-the-art algorithms is only 14.3, which reveals that we are still at a nascent stage for understanding objects, instances, and videos in a real-world scenario. Moreover, to complement missing object cues caused by occlusion, we propose a plug-and-play module called temporal feature calibration. Built upon MaskTrack R-CNN and SipMask, we report an AP of 15.0 and 16.7 respectively, a remarkable improvement over the best-performing method. The OVIS dataset and the project code are released at [[comming soon]](comming-soon).
+实验表明，现有的方法并不能在强遮挡场景下取得令人满意的结果。为了缓解遮挡带来的困难，我们提出了TFC模块，尝试通过融合前后帧信息来改善算法在遮挡场景下的表现。
 
 
+## 2. Dataset Statistics 
+
+![](data/table1.jpg)
+
+OVIS包含296k个高质量mask标注，25个常见类别，5,223个不同的物体，以及多种多样的遮挡场景。相比之前的Youtube-VIS数据集，OVIS拥有更多的mask，更多的物体。我们牺牲了一定的视频段数来标注更长更复杂的视频，以让它更具挑战性。
+
+值得注意的是，除去上面提到的基础数据统计量，我们在视频/物体时长、每帧物体数、每段视频物体数等统计量上都有着很大的优势，也与实际场景更相近。此外，我们使用mBOR指标（详见论文）来粗略地反映数据集的遮挡严重程度，可以看出OVIS包含更多更严重的遮挡。
+
+![](data/figure3.jpg)
+
+对于类别的选择，我们选取了25种人们熟知的类别，如上图。OVIS共包含4种交通工具、20种动物以及人。这些类别通常有较多的运动，也更容易产生严重的遮挡。此外，这些类别都可以在COCO、Pascal VOC中找到对应的图片数据，便于研究者们将OVIS与图片数据集共同训练，以进行进一步的研究。
 
 
+## 3. Visualization
 
----
+<!-- ![](data/figure2.jpg) -->
 
-
-
-# Explore OVIS
-
-### OVIS Consists of:
-- 151k high-quality instance masks
-- 25 commonly seen semantic categories
-- 280 videos with severe object occlusions
-- 1,840 unique instances
-
-Given a video, all the objects belonging to the pre-defined category set are exhaustively annotated. All the videos are annotated per 5 frames.
-
-*We are still running the annotation process and will end up witharound 300k masks according to our pre-allocated budget!*
-
-### Distinctive Properties
-
-- **Severe occlusions.** The most distinctive property of our OVIS dataset is that it primarily collects videos, wherein objects are under various types of occlusions caused by different factors. The resulting mBOR is 0.23.
-- **Long videos.** The average video duration and the average instance duration of OVIS are 19.02s and 14.22s respectively.
-- **Crowded scenes.** On average, there are 6.57 instances per video and 5.10 objects per frame.
-
-### Categories
-The 25 semantic categories in OVIS are <i>Person, Bird, Cat, Dog, Horse, Sheep, Cow, Elephant, Bear, Zebra, Giraffe, Poultry, Giant panda, Lizard, Parrot, Monkey, Rabbit, Tiger, Fish, Turtle, Bicycle, Motorcycle, Airplane, Boat</i>, and <i>Vehicle</i>.
-
-For a detailed description of OVIS, please refer to our paper.
-
-### Visualization
-
-<!-- ![Various types of occlusions](data/occlusions_singlecol_crop_30.png) -->
-
-
-
-
-<!-- ![shot](data/direct_cut.webp) -->
-
-<table style="display:flex;justify-content:center;border:0">
+<table style="display:flex;justify-content:center;border:0" rules=none frame=void >
 <tr>
 <td><img src="./data/webp/2592056.webp" alt="2592056" width="320" height="180" />
 </td>
@@ -78,43 +50,45 @@ For a detailed description of OVIS, please refer to our paper.
 </table>
 <center><i>Visualization of the annotations.</i></center>
 
+OVIS中包含多种不同的遮挡类型，如上图所示。按遮挡程度可分为部分遮挡、完全遮挡，按被遮挡场景可分为被其他目标对象遮挡、被背景遮挡、被图片边界遮挡。不同类型的遮挡可能同时存在，物体之间的遮挡关系也比较复杂。
+
+如上图右上角视频片段中，两只熊既互相部分遮挡，有时也会被树（背景）遮挡；右下角视频片段中，绿车和蓝车分别被白车和紫车逐渐遮挡，直到被完全遮挡，后来又逐渐出现在视线中。
+
+此外，从上图左上角视频片段可以看出OVIS的标注质量很高，我们对笼子的网格、动物的毛发都做了精细的标注。
+
+*更多可视化样例见文末*
 
 
-<!-- <video width="320" height="240" controls>
-  <source src="data/direct_cut.mp4" type="video/mp4">
-</video> -->
-<!-- ## Categories
-The 25 categories are as follows -->
+## Temporal Feature Calibration
 
-<!-- ![](./data/multi-shot-events.jpg)
-<center><i>Figure 2. Examples of multi-shot events. In each row, we show three consecutive shots in an instance and select two frames per shot for
-illustration. The scissor icons indicate the shot boundaries.</i></center> -->
+![](data/figure6.jpg)
 
-----
+OVIS中的目标物体通常是不断运动的，因此，某一帧被遮挡的物体可能在相邻的其他帧并没有被遮挡。人类可以利用这一点对被遮挡的物体进行追踪和判别，我们希望算法也可以做到利用前后帧信息来进行更好的检测和分类。
 
-# Download
+然而物体是运动的，不同帧之间的物体特征并不能直接对齐。为了解决这一问题，我们提出了一个简单的模块 Temporal Feature Calibration (TFC)。
 
-### Dataset Download
+给定当前帧和相邻帧的特征$\textbf{F}\_\textbf{q}$和$\textbf{F}\_\textbf{r}$，TFC首先计算两帧之间的空间联系$\textbf{C}\in\mathbb{R}^{H\times W\times d^2}$，然后通过3层卷积得到相邻帧到当前帧的空间位置偏移$\textbf{D}\in\mathbb{R}^{H\times W\times 18}$，再通过Deformable Convolution根据$\textbf{D}$将相邻帧的特征与当前帧对齐，得到对齐后的特征$\overline{\textbf{F}}\_{\textbf{r}}$。最后将这个对齐后的特征$\overline{\textbf{F}}\_{\textbf{r}}$与当前帧的特征$\textbf{F}\_\textbf{q}$相加，来进行后面的分类、检测、分割等任务。
 
-We provide the frames and annotations.
-- Frames: JPG format. The total size is 7.8GB. [[comming soon]](comming-soon)
-- Annotations: JSON format. [[comming soon]](comming-soon)
-
-The annotations are COCO-style, just like Youtube-VIS. So it's nearly cost-free to adapt your Youtube-VIS code for OVIS.
-
-### Code
-
-The code, models of the baseline method are released on [[comming soon]](https://github.com/qjy981010/OVIS).
-
-The evaluation metric is the same as Youtube-VIS's, so you can use the evalution code provided by them [[link]](https://github.com/youtubevos/cocoapi)
-
-# Contact
-For questions and suggestions, please contact Jiyang Qi (jiyangqi at hust dot edu dot cn).
+我们将TFC模块加到了MaskTrack R-CNN和SipMask上，分别得到了CMaskTrack R-CNN和CSipMask。
 
 
+## Experiments
 
+![](data/table2.jpg)
 
+我们尝试在OVIS上尝试了5种有开源代码的现有算法，结果如上表。可以看到OVIS是非常具有挑战性的，使用同样的评价指标，原本在Youtube-VIS上mAP能达到30+的sota方法，在OVIS上只有10+。5个现有算法中，STEm-Seg在OVIS上效果最好，但也只得到了14.4的mAP。CMaskTrack R-CNN和CSipMask分别在MaskTrack R-CNN和SipMask的基础上提升了2.6和2.9。
 
+![](data/table3.jpg)
+
+我们也在Youtube-VIS上测试了我们的新方法，CSipMask在SipMask的基础上提升了2.5个点，mAP达到了35.0。CMaskTrack R-CNN也比MaskTrack R-CNN高了1.8。
+
+消融实验也表明，我们的TFC模块相比其他两种特征融合方式（直接相加融合，或者根据两个特征的差值计算offset再融合）都有明显提升。
+
+## Conclusion
+
+我们针对遮挡场景下的视频实例分割任务贡献了一个大型数据集OVIS。作为继Youtube-VIS之后的第二个benchmark，OVIS主要设计用于衡量模型处理遮挡场景的能力。实验表明现有方法在OVIS上的表现远差于Youtube-VIS，因此，视觉模型对遮挡场景的理解还有很长的路要走。我们也尝试了利用相邻帧信息来缓解遮挡带来的影响，相比之前的方法有明显的提升。我们希望我们的工作能对关于遮挡问题的研究有所帮助。
+
+*更多细节见论文*
 
 
 
