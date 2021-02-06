@@ -31,6 +31,8 @@ layout: default
 
 ## 2. Dataset Statistics 
 
+我们在优酷网站和众包平台上采集了近万段视频，从中挑选了901段遮挡和运动较多、场景较复杂的片段，每段视频都至少有两个相互遮挡的目标对象。其中大部分视频分辨率为1920x1080，时长在5s到60s之间。我们切除掉了部分视频中的字幕和logo，并按每5帧标注一帧的密度进行了高质量标注，最终得到了OVIS数据集。
+
 <!-- ![](data/table1.jpg) -->
 <img src="data/table1.jpg" alt="3021160" width="400" height="215">
 
@@ -69,7 +71,7 @@ OVIS中包含多种不同的遮挡类型，按遮挡程度可分为部分遮挡�
 
 此外，从上图左上角视频片段可以看出OVIS的标注质量很高，我们对笼子的网格、动物的毛发都做了精细的标注。
 
-<!-- *更多可视化样例见文末* -->
+*更多可视化样例见文末*
 
 
 ## 4. Temporal Feature Calibration
@@ -108,4 +110,40 @@ $$\textbf{c}\textbf{(}\textbf{x}_\textbf{q},\textbf{x}_\textbf{r}\textbf{)} = \s
 *更多细节请见论文*
 
 
+
+<table style="display:flex;justify-content:center;border:0" rules=none frame=void >
+<tr>
+<td><img src="./data/webp_more/2524877_0_170.webp" width="213" height="120" />
+</td>
+<td><img src="./data/webp_more/2591274.webp" width="213" height="120">
+</td>
+<td><img src="./data/webp_more/2592058.webp" width="213" height="120">
+</td>
+</tr>
+<tr>
+<td><img src="./data/webp_more/2592138.webp" width="213" height="120">
+</td>
+<td><img src="./data/webp_more/2932109.webp" width="213" height="120">
+</td>
+<td><img src="./data/webp_more/2932131.webp" width="213" height="120">
+</td>
+</tr>
+<tr>
+<td><img src="./data/webp_more/2932134.webp" width="213" height="120">
+</td>
+<td><img src="./data/webp_more/3163218.webp" width="213" height="120">
+</td>
+<td><img src="./data/webp_more/3383476.webp" width="213" height="120">
+</td>
+</tr>
+<tr>
+<td><img src="./data/webp_more/3441792.webp" width="213" height="120">
+</td>
+<td><img src="./data/webp_more/3441794.webp" width="213" height="120">
+</td>
+<td><img src="./data/webp_more/3441797.webp" width="213" height="120">
+</td>
+</tr>
+</table>
+<center><i>Visualization examples of the annotations.</i></center>
 
