@@ -78,9 +78,11 @@ OVIS中包含多种不同的遮挡类型，按遮挡程度可分为部分遮挡�
 ## 4. Experiments
 
 <!-- ![](data/table2.jpg) -->
-<center><img src="data/table2.jpg"></center>
+<!-- <center><img src="data/table2.jpg"></center> -->
+<center><img src="data/table2_baselines.jpg"></center>
 
 我们尝试在OVIS上尝试了5种有开源代码的现有算法，结果如上表。可以看到OVIS是非常具有挑战性的，使用同样的评价指标，原本在Youtube-VIS上mAP能达到30+的sota方法，在OVIS上只有10+。5个现有算法中，STEm-Seg在OVIS上效果最好，但也只得到了14.4的mAP。
+
 
 ## 5. Conclusion
 
