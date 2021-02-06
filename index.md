@@ -81,7 +81,9 @@ OVIS中的目标物体通常是不断运动的，因此，某一帧被遮挡的�
 然而物体的运动也使得不同帧之间的特征在空间维度上并不能直接对齐。为了解决这一问题，我们提出了一个简单的模块 Temporal Feature Calibration (TFC)。
 
 给定当前帧和相邻帧的特征$\textbf{F}\_\textbf{q}$和$\textbf{F}\_\textbf{r}$，TFC首先计算两帧之间的空间联系$\textbf{C}\in\mathbb{R}^{H\times W\times d^2}$，其中
+
 $$\textbf{c}\textbf{(}\textbf{x}_\textbf{q},\textbf{x}_\textbf{r}\textbf{)} = \sum_{o\in[-k,k]\times[-k,k]}\textbf{F}_\textbf{q}(\textbf{x}_\textbf{q}+o)\textbf{F}_\textbf{r}(\textbf{x}_\textbf{r}+o)^\mathrm{T}$$
+
 然后将$\textbf{C}$通过3层卷积得到相邻帧到当前帧的空间位置偏移$\textbf{D}\in\mathbb{R}^{H\times W\times 18}$，再通过Deformable Convolution根据$\textbf{D}$将相邻帧的特征$\textbf{F}\_\textbf{r}$与当前帧对齐，得到对齐后的特征$\overline{\textbf{F}}\_{\textbf{r}}$。最后将这个对齐后的特征$\overline{\textbf{F}}\_{\textbf{r}}$与当前帧的特征$\textbf{F}\_\textbf{q}$相加，来进行后面的分类、检测、分割等任务。
 
 我们将TFC模块加到了MaskTrack R-CNN和SipMask上分别进行了尝试，改进后的模型可称为CMaskTrack R-CNN和CSipMask。
