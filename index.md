@@ -50,6 +50,12 @@ OVIS包含5223个目标的296k个高质量mask标注。相比先前的Youtube-VI
 
 ## 3. Visualization
 
+OVIS中包含多种不同的遮挡类型，按遮挡程度可分为部分遮挡、完全遮挡，按被遮挡场景可分为被其他目标对象遮挡、被背景遮挡、被图片边界遮挡。不同类型的遮挡可能同时存在，物体之间的遮挡关系也比较复杂。
+
+如下图右上角视频片段中，两只熊既互相部分遮挡，有时也会被树（背景）遮挡；右下角视频片段中，绿车和蓝车分别被白车和紫车逐渐遮挡，直到被完全遮挡，后来又逐渐出现在视线中。
+
+此外，从下图左上角视频片段可以看出OVIS的标注质量很高，我们对笼子的网格、动物的毛发都做了精细的标注。
+
 <!-- ![](data/figure2.jpg) -->
 
 <table style="display:flex;justify-content:center;border:0" rules=none frame=void >
@@ -68,22 +74,16 @@ OVIS包含5223个目标的296k个高质量mask标注。相比先前的Youtube-VI
 </table>
 <center><i>Visualization of the annotations.</i></center>
 
-OVIS中包含多种不同的遮挡类型，按遮挡程度可分为部分遮挡、完全遮挡，按被遮挡场景可分为被其他目标对象遮挡、被背景遮挡、被图片边界遮挡。不同类型的遮挡可能同时存在，物体之间的遮挡关系也比较复杂。
-
-如上图右上角视频片段中，两只熊既互相部分遮挡，有时也会被树（背景）遮挡；右下角视频片段中，绿车和蓝车分别被白车和紫车逐渐遮挡，直到被完全遮挡，后来又逐渐出现在视线中。
-
-此外，从上图左上角视频片段可以看出OVIS的标注质量很高，我们对笼子的网格、动物的毛发都做了精细的标注。
-
 *更多可视化样例见文末*
 
 
 ## 4. Experiments
 
+我们尝试在OVIS上尝试了5种有开源代码的现有算法，结果如下表。可以看到OVIS非常具有挑战性，使用同样的评价指标，原本在Youtube-VIS上mAP能达到30+的sota方法，在OVIS上只有10+。5个现有算法中，STEm-Seg在OVIS上效果最好，但也只得到了14.4的mAP。
+
 <!-- ![](data/table2.jpg) -->
 <!-- <center><img src="data/table2.jpg"></center> -->
 <center><img src="data/table2_baselines.jpg"></center>
-
-我们尝试在OVIS上尝试了5种有开源代码的现有算法，结果如上表。可以看到OVIS非常具有挑战性，使用同样的评价指标，原本在Youtube-VIS上mAP能达到30+的sota方法，在OVIS上只有10+。5个现有算法中，STEm-Seg在OVIS上效果最好，但也只得到了14.4的mAP。
 
 
 ## 5. Conclusion
