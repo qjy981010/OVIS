@@ -88,10 +88,30 @@ OVIS中包含多种不同的遮挡类型，按遮挡程度可分为部分遮挡�
 <td><img src="./data/webp_more/2592138.webp" width="160" height="90">
 </td>
 </tr>
+<tr>
+<td><img src="./data/webp_more/2932109.webp" width="160" height="90" />
+</td>
+<td><img src="./data/webp_more/2932131.webp" width="160" height="90">
+</td>
+<td><img src="./data/webp_more/2932134.webp" width="160" height="90">
+</td>
+<td><img src="./data/webp_more/3163218.webp" width="160" height="90">
+</td>
+</tr>
+<tr>
+<td><img src="./data/webp_more/3383476.webp" width="160" height="90" />
+</td>
+<td><img src="./data/webp_more/3441792.webp" width="160" height="90">
+</td>
+<td><img src="./data/webp_more/3441794.webp" width="160" height="90">
+</td>
+<td><img src="./data/webp_more/3441797.webp" width="160" height="90">
+</td>
+</tr>
 </table>
 <center><i>Visualization of the annotations.</i></center>
 
-*更多可视化样例见文末*
+<!-- *更多可视化样例见文末* -->
 
 
 ## 5. Conclusion
