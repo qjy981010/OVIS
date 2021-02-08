@@ -48,7 +48,16 @@ OVIS包含5223个目标的296k个高质量mask标注。相比先前的Youtube-VI
 <center><img src="data/table1.jpg" width="400" height="215"></center>
 
 
-## 3. Visualization
+## 3. Experiments
+
+我们尝试在OVIS上尝试了5种有开源代码的现有算法，结果如下表。可以看到OVIS非常具有挑战性。使用同样的评价指标，MaskTrack R-CNN在Youtube-VIS上mAP能达到30.3，在OVIS上只有12.6；SipMask的mAP也从Youtube-VIS上的32.5降到了OVIS上的12.1。5个现有算法中，STEm-Seg在OVIS上效果最好，但也只得到了14.4的mAP。
+
+<!-- ![](data/table2.jpg) -->
+<!-- <center><img src="data/table2.jpg"></center> -->
+<center><img src="data/table2_baselines.jpg"></center>
+
+
+## 4. Visualization
 
 OVIS中包含多种不同的遮挡类型，按遮挡程度可分为部分遮挡、完全遮挡，按被遮挡场景可分为被其他目标对象遮挡、被背景遮挡、被图片边界遮挡。不同类型的遮挡可能同时存在，物体之间的遮挡关系也比较复杂。
 
@@ -60,30 +69,29 @@ OVIS中包含多种不同的遮挡类型，按遮挡程度可分为部分遮挡�
 
 <table style="display:flex;justify-content:center;border:0" rules=none frame=void >
 <tr>
-<td><img src="./data/webp/2592056.webp" alt="2592056" width="320" height="180" />
+<td><img src="./data/webp/2592056.webp" alt="2592056" width="160" height="90" />
 </td>
-<td><img src="./data/webp/2930398.webp" alt="2930398" width="320" height="180">
+<td><img src="./data/webp/2930398.webp" alt="2930398" width="160" height="90">
+</td>
+<td><img src="./data/webp/2932104.webp" alt="2932104" width="160" height="90">
+</td>
+<td><img src="./data/webp/3021160.webp" alt="3021160" width="160" height="90">
 </td>
 </tr>
 <tr>
-<td><img src="./data/webp/2932104.webp" alt="2932104" width="320" height="180">
+<td><img src="./data/webp_more/2524877_0_170.webp" width="160" height="90" />
 </td>
-<td><img src="./data/webp/3021160.webp" alt="3021160" width="320" height="180">
+<td><img src="./data/webp_more/2591274.webp" width="160" height="90">
+</td>
+<td><img src="./data/webp_more/2592058.webp" width="160" height="90">
+</td>
+<td><img src="./data/webp_more/2592138.webp" width="160" height="90">
 </td>
 </tr>
 </table>
 <center><i>Visualization of the annotations.</i></center>
 
 *更多可视化样例见文末*
-
-
-## 4. Experiments
-
-我们尝试在OVIS上尝试了5种有开源代码的现有算法，结果如下表。可以看到OVIS非常具有挑战性，使用同样的评价指标，原本在Youtube-VIS上mAP能达到30+的sota方法，在OVIS上只有10+。5个现有算法中，STEm-Seg在OVIS上效果最好，但也只得到了14.4的mAP。
-
-<!-- ![](data/table2.jpg) -->
-<!-- <center><img src="data/table2.jpg"></center> -->
-<center><img src="data/table2_baselines.jpg"></center>
 
 
 ## 5. Conclusion
@@ -94,7 +102,7 @@ OVIS中包含多种不同的遮挡类型，按遮挡程度可分为部分遮挡�
 
 
 
-<table style="display:flex;justify-content:center;border:0" rules=none frame=void >
+<!-- <table style="display:flex;justify-content:center;border:0" rules=none frame=void >
 <tr>
 <td><img src="./data/webp_more/2524877_0_170.webp" width="213" height="120" />
 </td>
@@ -128,5 +136,5 @@ OVIS中包含多种不同的遮挡类型，按遮挡程度可分为部分遮挡�
 </td>
 </tr>
 </table>
-<center><i>Visualization examples of the annotations.</i></center>
+<center><i>Visualization examples of the annotations.</i></center> -->
 
