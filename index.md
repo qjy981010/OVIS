@@ -14,7 +14,7 @@ layout: default
     </script>
 </head>
 
-本文介绍一下我们最新提出的视频实例分割数据集OVIS
+本文介绍一下我们最近公开的视频实例分割数据集OVIS
 
 **Occluded Video Instance Segmentation**
 

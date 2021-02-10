@@ -3,6 +3,7 @@ import os
 from PIL import Image, ImageSequence
 from IPython import embed
 # from webptools import gifwebp
+import imageio
 
 
 def compose_gif(image_dir, save_dir, range_=None):
@@ -20,21 +21,21 @@ def compose_gif(image_dir, save_dir, range_=None):
         # exit(0)
     
     name = os.path.basename(image_dir)
-    gif_images[0].save(os.path.join(save_dir, name+".webp"), save_all=True, append_images=gif_images[1:])
-    # imageio.mimsave(os.path.join(save_dir, name+".gif"), gif_images, fps=5)
+    # gif_images[0].save(os.path.join(save_dir, name+".webp"), save_all=True, append_images=gif_images[1:])
+    imageio.mimsave(os.path.join(save_dir, name+".gif"), gif_images, fps=5)
     # print(gifwebp(os.path.join(save_dir, name+".gif"), os.path.join(save_dir, name+".webp"), "-q 80"))
 
 
 if __name__ == "__main__":
     image_dir = '/mnt/d/data/annotatation/annotations_before/annotations_coco_1112_v4/VisualizeMask/'
-    save_dir = './data/webp_more'
+    save_dir = './data/gif'
     os.makedirs(save_dir, exist_ok=True)
 
     ann_ids = {
-        # '2592056': slice(0, 30),
-        # '2930398': slice(10, 60),
-        # '2932104': slice(40, 85),
-        # '3021160': slice(15, 33),
+        '2592056': slice(0, 30),
+        '2930398': slice(10, 60),
+        '2932104': slice(40, 85),
+        '3021160': slice(15, 33),
         '2592058': slice(0, 63),
         '2932134': slice(20, 65),
         '3163218': slice(1, 34),
