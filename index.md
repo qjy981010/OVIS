@@ -14,8 +14,6 @@ layout: default
     </script>
 </head>
 
-遮挡场景下视频实例分割怎么做？牛津阿里最新开源OVIS数据集！
-
 本文介绍一下我们最近公开的视频实例分割数据集OVIS
 
 **Occluded Video Instance Segmentation**
